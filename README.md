@@ -9,9 +9,6 @@
 | `visualizer.py` | Beautiful charts & plots | Python module |
 | `strategies.py` | 4 example trading strategies | Python module |
 | `requirements.txt` | Python dependencies | Configuration |
-| `linkedin_post_template.md` | 4 post versions + tips | Marketing |
-
-**Status**: ✅ All files ready to use
 
 ---
 
