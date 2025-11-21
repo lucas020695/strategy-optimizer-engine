@@ -1,5 +1,3 @@
-"""Beautiful visualizations for optimization results"""
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,7 +10,6 @@ logger = logging.getLogger(__name__)
 
 
 class StrategyVisualizer:
-    """Generate stunning visualizations"""
 
     def __init__(self, theme: str = 'plotly'):
         self.theme = theme
@@ -26,7 +23,6 @@ class StrategyVisualizer:
         z_values: np.ndarray,
         title: str = "Parameter Optimization Surface"
     ):
-        """Create 3D surface plot"""
 
         X, Y = np.meshgrid(x_values, y_values)
 
@@ -55,7 +51,6 @@ class StrategyVisualizer:
         label2: str = "Strategy 2",
         title: str = "Equity Curves Comparison"
     ):
-        """Compare two equity curves"""
 
         cum1 = (1 + returns1.pct_change()).cumprod() * 100
         cum2 = (1 + returns2.pct_change()).cumprod() * 100
@@ -98,7 +93,6 @@ class StrategyVisualizer:
         return_metric: str = 'sharpe_ratio',
         title: str = "Efficient Frontier"
     ):
-        """Plot risk vs return efficient frontier"""
         
         data = optimization_history.copy()
         
@@ -133,7 +127,6 @@ class StrategyVisualizer:
         out_sample_returns: pd.Series,
         title: str = "In-Sample vs Out-of-Sample Equity Curves"
     ):
-        """Compare in-sample vs out-of-sample equity curves"""
         
         # Normalize to 100
         is_cumulative = (1 + in_sample_returns.pct_change()).cumprod() * 100
@@ -176,7 +169,6 @@ class StrategyVisualizer:
         returns: pd.Series,
         title: str = "Monthly Returns Heatmap"
     ):
-        """Create monthly returns calendar heatmap"""
         
         returns_monthly = returns.resample('M').apply(lambda x: (1 + x).prod() - 1)
         
@@ -208,7 +200,6 @@ class StrategyVisualizer:
         returns: pd.Series,
         title: str = "Drawdown Over Time"
     ):
-        """Plot drawdown analysis"""
         
         cumulative = (1 + returns.pct_change()).cumprod()
         running_max = cumulative.expanding().max()
@@ -243,7 +234,6 @@ class StrategyVisualizer:
         metric: str = 'score',
         title: str = "Optimization Progress"
     ):
-        """Plot optimization progress over iterations"""
         
         fig = go.Figure()
         
